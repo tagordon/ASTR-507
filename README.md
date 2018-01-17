@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 This is the git repository for my thermodynamics class. 
 =======
 ## Particles in a box
@@ -14,4 +13,3 @@ to a two-body collision between hard-sphere particles.
 Boundaries are periodic - I also implemented hard-wall boundaries but these, of course, do not conserve momentum so I chose 
 to use periodic boundaries instead. I could have handled the hard-wall boundary momentum problem in a variety of ways, but 
 simply implementing periodic boundaries seemed like a more natural choice. 
->>>>>>> 854675e2665445d0ccc0fa65d545890e511b9795
