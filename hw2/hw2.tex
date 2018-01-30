@@ -1,0 +1,110 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{fullpage, amssymb, amsmath, graphicx} 
+
+\newcommand{\mytitle}{ASTR 507 Problem Set 2}
+
+\begin{document}
+\noindent
+\large\textbf{\mytitle} \\ \\ Tyler Gordon \\
+\normalsize \today 
+\ \ \hrulefill
+
+\section*{Problem 1}
+	The heat capacity at constant pressure is defined as
+	\begin{equation*}
+		C_p = \left(\frac{dU}{dT}\right)_P
+	\end{equation*}
+	And the heat capacity at constant volume is:
+	\begin{equation*}
+		C_v = \left(\frac{dU}{dT}\right)_V
+	\end{equation*}
+	Starting with the first law of thermodynamics, $dU = dQ - PdV$, we note that the heat capacity at constant volume can also 
+	be written 
+	\begin{equation*}
+		C_v = \frac{dQ}{dT}
+	\end{equation*}
+	Setting this fact aside for now, we can differentiate the internal energy of the fluid to find the heat capacity at constant volume:
+	\begin{equation*}
+		 \left(\frac{dU}{dT}\right)_V = \frac{d}{dT}\left(\frac{f}{2}NkT\right) = \frac{f}{2}Nk
+	\end{equation*}
+	where $f$ is the number of degrees of freedom in the energy of the molecule in question. Now for $C_p$, we have, from the 
+	first law, 
+	\begin{equation*}
+		C_p = \frac{dQ}{dT} - \frac{PdV}{dT}
+	\end{equation*}
+	The first term is just $C_v$. The second term can be found from the ideal gas law: $PdV = d(NkT) = Nk$ and therefore 
+	\begin{equation*}
+		C_p = C_v - Nk
+	\end{equation*}
+	Combining these relationships, we arrive at $C_v - C_p = Nk$, and 
+	\begin{equation*}
+		\frac{C_p}{C_v} = \frac{C_v - Nk}{C_v} = 1 - \frac{Nk}{C_v} = 1 - \frac{2}{f} = \gamma
+	\end{equation*}
+\section*{Problem 2}
+	We can find the speed of the fastest electron by solving the equation $nVB(v) = 1$ to find the lowest velocity above 
+	which we would expect to find only a single electron. Doing this numerically for the Boltzmann distribution with the 
+	given parameters ($m = m_e$, $T = 10^6$ K, $n = 0.01$ cm$^{-3}$, and $V = 40$ pc$^3$), I 
+	find $v_\text{max} \sim 6\times10^7$ m/s. This is only about a factor of 5 less than the velocity of a cosmic ray, but 
+	that difference is still significant. The probability of finding a particle in this distribution with velocity $v \sim c$ is essentially 
+	zero. Of course, the Maxwellian velocity distribution is also non-relativistic. A properly relativistic velocity distribution should 
+	drop off even more quickly at velocities near $c$. Otherwise a sufficiently high temperature could drive electrons to faster 
+	than light speed. Thus cosmic rays cannot have a thermal origin. 
+\section*{Problem 3}
+	\subsection*{Part A}
+		The mean free path at the escape density is: 
+		\begin{equation*}
+			l = 1/n_\text{esc}\sigma
+		\end{equation*}
+		Setting this equation to $H = kT/(mg)$, we find: 
+		\begin{equation*}
+			n_\text{esc} =\frac{mg}{kT\sigma}
+		\end{equation*}
+	\subsection*{Part B}
+		Integrate:
+		\begin{equation*}
+			\phi(v)dv = \frac{f(v)}{4\pi}dv\int_0^{2\pi}d\phi\int_0^{\pi/2}v\cos\theta\sin\theta d\theta
+		\end{equation*}
+		The integral over $d\phi$ yields a factor of $2\pi$, and the second integral is evaluated as
+		\begin{equation*}
+			\int_0^{\pi/2}v\cos\theta\sin\theta d\theta = \frac{v}{2}\sin^2\theta\bigg|_0^{\pi/2} = \frac{v}{2}
+		\end{equation*}
+		So the complete integral evaluates to
+		\begin{equation*}
+			\phi(v)dv = \frac{f(v)}{4}vdv
+		\end{equation*}
+	\subsection*{Part C}
+		To simplify things, let's consider the integral 
+		\begin{equation*}
+			\phi = \frac{A}{4}\int_{v_\text{esc}}^\infty v^3e^{-bv^2}
+		\end{equation*}
+		At the end of the evaluation we can replace $A$ with the proper set of constants for the Maxwellian velocity distribution, 
+		and $b$ with $b = m/2kT$. Integrating by parts, we have
+		\begin{equation*}
+			\int_{v_{esc}}^\infty v^3e^{-bv^2} = -\frac{v^2}{2b}e^{-bv^2}\bigg|_{v_{esc}}^\infty + \frac{1}{b}\int_{v_{esc}}^\infty ve^{-bv^2} = \left(-\frac{v^2}{2b}+\frac{1}{2b^2}\right)e^{-bv^2}\bigg|_{v_{esc}}^\infty
+		\end{equation*}
+		Evaluating between the two limits and multiplying the $A/4$ factor back onto the result, we have
+		\begin{equation*}
+			\phi = \frac{A}{4} \left(\frac{v_{esc}^2}{2b} + \frac{1}{2b^2}\right)e^{-bv_{esc}^2}
+		\end{equation*}
+		Substituting in the constants for $A$ and $b$, we have
+		\begin{equation*}
+			\phi = \frac{\pi m^{3/2}n}{(2\pi kT)^{3/2}} \left(\frac{kTv_{esc}^2}{m} + \frac{2(kT)^2}{m^2}\right)e^{-mv_{esc}^2/2kT}
+		\end{equation*}
+		Finally, in terms of $v_s$ and $\lambda_{esc}$, we have
+		\begin{equation*}
+			\phi = \frac{nv_s}{2\sqrt{\pi}}(\lambda_{esc} + 1)e^{-\lambda_{esc}}
+		\end{equation*}
+	\subsection*{Part D}
+		Over 1 Gyr the Earth would lose $4.2\times10^{42}$ molecular hydrogen molecules, nearly half of its current reservoir of 
+		hydrogen. 
+	\subsection*{Part E}
+		Over this same period of time the it is unlikely that even a single oxygen molecule will escape the atmosphere through this 
+		mechanism. I calculate that about $3\times10^{-54}$ molecules escape over 1 Gyr. Thus, over time, the ratio of oxygen to 
+		hydrogen molecules should increase as hydrogen escapes at oxygen stays put.
+	\subsection*{Part E}
+		For deuterium-hydrogen molecules, I calculate that $4\times10^{39}$ molecules escape over 1 Gyr, compared to a thousand 
+		times more molecules for hydrogen alone. As a result, the D/H ratio should increase over time. 
+		\ \\ \\
+		My calculations for parts D-E are on my github: 
+	
+	\end{document}
