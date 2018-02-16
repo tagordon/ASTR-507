@@ -1,0 +1,56 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{fullpage, amssymb, amsmath, graphicx} 
+
+\newcommand{\mytitle}{Problem Set 3}
+
+\begin{document}
+\noindent
+\large\textbf{\mytitle} \\ \\ Tyler Gordon \\
+\normalsize \today 
+\ \ \hrulefill
+\section*{Problem 1}
+	\subsection*{Part A}
+		The entropy is found from 
+		\begin{equation*}
+			S = (U + PV - N\mu)/T
+		\end{equation*}
+		The pressure and number terms are given in the notes:
+		\begin{equation*}
+			\frac{PV}{kT} = \frac{4(2s+1)V}{3\pi^{1/2}\lambda^3}F_{3/2}(z)
+		\end{equation*}
+		\begin{equation*}
+			\frac{N\mu}{kT} = \frac{2(2s+1)V}{\pi^{1/2}\lambda^3}F_{1/2}(z)
+		\end{equation*}
+		with $\lambda=h/\sqrt{2\pi mkT}$
+		We can compute the internal energy by integrating the energy of each state 
+		weighted by the population in each state:
+		\begin{equation*}
+			\frac{U}{kT} = \frac{(2s+1)V}{h^3kT}\int_0^\infty \epsilon N(\epsilon) d^3p
+		\end{equation*}
+		where the factor in front of the integral gives the multiplicity of each energy state. 
+		For a non-interacting Fermi gas we can make the substitution $\epsilon=p^2/2m$ and 
+		then introduce the variable $w=\epsilon/kT$:
+		\begin{equation*}
+			\frac{U}{kT} = \frac{4\pi(2s+1)V}{h^3kT}\int_0^\infty N(w) \frac{(2mkT)^{5/2}}{10m}d(w^{5/2})
+		\end{equation*}
+		where
+		\begin{equation*}
+			N(w) = \frac{1}{e^w/z + 1}
+		\end{equation*}
+		$d(w^{5/2}) = (5/2)w^{3/2}dw$, so the integral becomes:
+		\begin{equation*}
+			\int_0^\infty (mkT)^{5/2}\frac{\sqrt{2}}{m}\frac{w^{3/2}}{e^w/z+1}dw =(mkT)^{5/2}\frac{\sqrt{2}}{m}F_{3/2}(z)
+		\end{equation*}
+		And therefore the internal energy is:
+		\begin{equation*}
+			\frac{U}{kT} = \frac{4\pi\sqrt{2}(2s+1)V(mkT)^{3/2}}{h^3}F_{3/2}(z) = \frac{2(2s+1)}{\sqrt{\pi}\lambda^3}F_{3/2}(z)
+		\end{equation*}
+		where $\lambda = (2\pi mkT)^{3/2}/h^3$. Comparing this to the pressure term, we find that 
+		$u = \frac{3}{2}P$. Putting this all together, we find the expression for entropy:
+		\begin{equation*}
+			S = \frac{5k}{2}\frac{PV}{kT} - \frac{N\mu}{T} = \frac{(2s+1)V}{\sqrt{\pi}\lambda^3}\left(\frac{10}{3}F_{3/2}(z) + \frac{2\mu}{kT}F_{1/2}(z)\right)
+		\end{equation*}
+	\subsection*{Part B}
+		
+
+\end{document}
