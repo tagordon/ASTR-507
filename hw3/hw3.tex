@@ -10,7 +10,7 @@
 \ \ \hrulefill
 \section*{Problem 1}
 	\subsection*{Part A}
-		The entropy is found from 
+		The entropy is found from
 		\begin{equation*}
 			S = (U + PV - N\mu)/T
 		\end{equation*}
@@ -51,6 +51,28 @@
 			S = \frac{5k}{2}\frac{PV}{kT} - \frac{N\mu}{T} = \frac{(2s+1)V}{\sqrt{\pi}\lambda^3}\left(\frac{10}{3}F_{3/2}(z) + \frac{2\mu}{kT}F_{1/2}(z)\right)
 		\end{equation*}
 	\subsection*{Part B}
+		To expand the pressure in a series in fugacity, we can just expand the Fermi-Dirac integral. To do 
+		this, we Taylor expand the integrand. The first term in the expansion is just the function evaluated 
+		at zero, which is zero. For the linear term we have:
+		\begin{equation*}
+			\frac{d}{dz}\left(\frac{w^{3/2}}{e^w/z + 1}\right) = \frac{-w^{3/2}}{(e^w/z+1)^2}(-e^w/z^2) = \frac{w^{3/2}e^w}{(e^w + z)^2}
+		\end{equation*}
+		Evaluating this at $z=0$, $w^{3/2}e^{-w}$. The linear approximation for the Fermi-Dirac integral is 
+		then:
+		\begin{equation*}
+			F_{3/2}(z) \sim z\int_0^\infty w^{3/2}e^{-w}dw
+		\end{equation*}
+		Integrating this numerically, we have:
+		\begin{equation*}
+			F_{3/2}(z) \sim 0.47z
+		\end{equation*} 
+		Adding back the constants to get the full expression for the pressure of the fermi gas:
+		\begin{equation*}
+			P(z, T) = \frac{1.88z(2s+1)}{3\sqrt{\pi}\lambda^3}
+		\end{equation*}
+		This indicates that an increase in the degeneracy of the gas (corresponding to an increase in the 
+		fugacity) will result in an increase in pressure. 
+\section*{Problem 2}
 		
 
 \end{document}
